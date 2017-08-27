@@ -14,7 +14,7 @@ import java.util.LinkedList;
  *
  */
 public class InputFileReader {
-  double [][] data;
+  Double [][] data;
   public InputFileReader(String file) {
 
     try (
@@ -22,19 +22,19 @@ public class InputFileReader {
         BufferedReader buffer = new BufferedReader(reader);
         
     ){
-      LinkedList<double[]> work = new LinkedList<>();
+      LinkedList<Double[]> work = new LinkedList<>();
       String line;
       while ((line = buffer.readLine()) != null) {
-         if (line.trim().length() > 0) {
-           String[] values = line.trim().split("\\s+");
-           double[] doubleValues = new double[values.length];
-           for(int i = 0; i < values.length; i++) {
-             doubleValues[i] = Double.parseDouble(values[i]);
-           }
-           work.add(doubleValues);
+       if (line.trim().length() > 0) {
+         String[] values = line.trim().split("\\s+");
+         Double[] doubleValues = new Double[values.length];
+         for(int i = 0; i < values.length; i++) {
+           doubleValues[i] = Double.parseDouble(values[i]);
          }
+         work.add(doubleValues);
+       }
       }
-      data = work.toArray(new double[0][]);
+      data = work.toArray(new Double[0][]);
     } catch (FileNotFoundException ex) {
       // TODO Auto-generated catch block
       ex.printStackTrace();
